@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static%}
+
+{% block contenido %} 
+
+<center>
+    <form method= "POST" style="margin: 200px;">
+        <h1>Formalario de contacto</h1>
+        <br>
+        {% if messages%}
+            {% for messages in messages%}
+            <div class='message {{ message.tags }}'> {{message}}</div>
+            {% endfor %}
+        <table>
+            {% csrf_token %}
+            {{ from }}
+        </table>
+        <input type="submit" value="enviar">
+    </form>
+</center>
+
+{% endblock %} 
